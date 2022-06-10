@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 const io = require("socket.io")(server);
 
-const chat = require("./routes/chat")(io);
+const chat = require("./routes/chat.socket")(io);
 
 const path = require('path');
 const publicDir = path.join(__dirname,"./public");
