@@ -9,6 +9,11 @@ module.exports = async function(io){
           io.emit("message", msg);
         });
 
+        socket.on('joinRequest', ({username, room})=>{
+          socket.join(room);
+          socket.broadcast.to(room).emit('message', `${username} has joined ${room} room`);
+        })
+
         socket.on('disconnect', ()=>{
           io.emit("message", 'a user disconnected');
         })
