@@ -13,3 +13,7 @@ form.addEventListener('submit', (msg)=>{
 socket.on('message', (msg)=>{
     console.log(msg);
 })
+
+socket.on('welcomeMessage', (msg)=>{
+    console.log(msg);
+})
