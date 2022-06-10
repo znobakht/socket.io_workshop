@@ -10,9 +10,9 @@ const io = require("socket.io")(server);
 
 const chat = require("./routes/chat")(io);
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+const path = require('path');
+const publicDir = path.join(__dirname,"./public");
+app.use(express.static(publicDir));
 
 const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`server running on port ${port}`));
